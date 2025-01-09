@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title> Course Information </title>
+    <link rel="stylesheet" href={% static "css/student.css" %}>
+</head>
+<body>
+    <h1> Create New Course </h1>
+    <form method="POST">    
+    <table>
+        {{form.as_table}}
+        {% csrf_token %}
+    </table>
+    <br>
+    <input type="submit" name="" value="Add Course">
+</form>
+</body>
+</html>

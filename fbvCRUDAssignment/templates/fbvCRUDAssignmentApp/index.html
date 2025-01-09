@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title> Course Information </title>
+    <link rel="stylesheet" href={% static "css/student.css" %}>
+</head>
+<body>
+    <h1> List of Courses </h1>
+    {% if courses %}
+    <table border="2">
+        <thead>
+            <th> Id </th>
+            <th> Name </th>
+            <th> Description </th>
+            <th> Instructor </th>
+            <th> Rating </th>
+        </thead>
+        {% for course in courses %}
+            <tr>
+                <td>{{course.id}}</td>
+                <td>{{course.Name}}</td>
+                <td>{{course.Description}}</td>
+                <td>{{course.Instructor}}</td>
+                <td>{{course.Rating}}</td>
+                <td><a href='/update/{{course.id}}'>Edit</a></td>
+                <td><a href='/delete/{{course.id}}'>Delete</a></td>               
+
+            </tr>
+        {% endfor %}
+    {% else %}
+            <p> No results found
+    {% endif %}
+    </table>
+  <br><br>
+  <a href='/create'> Add New Course </a>
+
+
+</body>
+</html>
